@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bug WhatsApp ZxcvV1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('https://files.catbox.moe/qv78t8.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        h1 {
+            color: #075e54;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #075e54;
+            font-weight: bold;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #075e54;
+        }
+        
+        button {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .status.active {
+            display: block;
+        }
+        
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .credits {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .image-preview {
+            margin-bottom: 20px;
+            height: 150px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px dashed #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        
+        .image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .background-control {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bug ZxcvV1</h1>
+        
+        <div class="image-preview" id="imagePreview">
+            <p>Selamat Datang Broo,</p>
+        </div>
+        <div class="input-group">
+            <label for="phoneNumber">Nomor WhatsApp Target:</label>
+            <input type="text" id="phoneNumber" placeholder="Contoh: 62xxx">
+        </div>
+        
+        <button id="sendBugBtn">KIRIM BUG</button>
+        
+        <div class="status" id="statusMessage"></div>
+        
+        <p class="credits">web ini dibuat oleh Relzz</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const backgroundUrlInput = document.getElementById('backgroundUrl');
+            const phoneNumberInput = document.getElementById('phoneNumber');
+            const sendBugBtn = document.getElementById('sendBugBtn');
+            const statusMessage = document.getElementById('statusMessage');
+            const imagePreview = document.getElementById('imagePreview');
+            
+            // Set default background
+            document.body.style.backgroundImage = 'url("https://files.catbox.moe/qv78t8.jpg")';
+            
+            // Simulate sending bug
+            sendBugBtn.addEventListener('click', function() {
+                const phoneNumber = phoneNumberInput.value.trim();
+                
+                if (!phoneNumber) {
+                    alert('Masukkan nomor WhatsApp terlebih dahulu!');
+                    return;
+                }
+                
+                // Disable button during "sending" process
+                sendBugBtn.disabled = true;
+                sendBugBtn.textContent = 'Mengirim...';
+                
+                // Simulate network delay
+                setTimeout(function() {
+                    // Show success message
+                    statusMessage.textContent = 'BUG ANDA TERKIRIM KE TARGET';
+                    statusMessage.classList.add('success');
+                    statusMessage.classList.add('active');
+                    
+                    // Reset button
+                    sendBugBtn.disabled = false;
+                    sendBugBtn.textContent = 'KIRIM BUG';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
